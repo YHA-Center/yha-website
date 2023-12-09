@@ -6,14 +6,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\YHAController;
 use App\Http\Controllers\CourseController;
 
-// Home
-
+// Home Controllers
 Route::get('/home', [YHAController::class, 'home'])->name('yha#home');
-Route::get('/course', [CourseController::class, 'getCourse'])->name('yha#course');
 
 
 // cousre
-
+Route::get('/course', [CourseController::class, 'getCourse'])->name('yha#course');
 
 // register
 
