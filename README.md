@@ -56,5 +56,19 @@ $ show tables;
 $ php artisan serve
 ```
 
+## How to Pull Request and Push
+
+To make a **pull request**, 
+
+```shell
+$ git branch your_branch_name
+$ git checkout your_branch_name
+$ git add .
+$ git commit -m "message"
+$ git push origin your_branch_new
+```
+
+
+
 
 
