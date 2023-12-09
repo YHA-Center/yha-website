@@ -2,7 +2,7 @@
 
 <div align=center>
 
-<img src="./public/image/logo/logo.png" width="180px">
+<img src="./public/image/logo/logo.png" width="200px">
 
 # YHA Computer Training Center   
 
@@ -22,13 +22,13 @@ $ cd project
 $ git clone https://github.com/YHA-Center/yha-website.git
 ```
 
-2. Create **.env**
+2. Create **.env** file
 
 ```shell
 $ cp .env.example .env
 ```
 
-3. Configure the **.env**
+3. Edit **.env** for database configuration
 
 ```env
 DB_CONNECTION=mysql
@@ -38,9 +38,9 @@ DB_DATABASE=<DATABASENAME>   // your database name
 DB_USERNAME=root
 DB_PASSWORD=<PASSWORD>     // your database password
 ```
-4. Import the following **database file**.
+4. Import the following **database file** in your local device.
 
-File Here -> [Database File SQL](https://github.com/YHA-Center/yha-website/db.sql)
+File Here -> [db.sql](https://github.com/YHA-Center/yha-website/db.sql)
 
 ```shell
 $ mysql -u root -p
