@@ -60,14 +60,43 @@ $ php artisan serve
 
 To make a **pull request**, 
 
+1. Create new branch which you work with
+
 ```shell
 $ git branch your_branch_name
 $ git checkout your_branch_name
+```
+
+2. Push to the remote server
+
+```shell
 $ git add .
 $ git commit -m "message"
 $ git push origin your_branch_new
 ```
 
+3. Create **Pull Request** and **Merge** with **Main** branch
+
+Click **Compare & pull request**
+
+![click-compare-&-pull-request](./public/image/guide/click-pull-request.jpg)
+
+Click **Create Pull Request**. You can also change **Add a title** field what you like.
+
+![click-create-pull-request](./public/image/guide/click-pull-request-btn.jpg)
+
+Click **Merge Pull Request** and then click **Merge**. We can also add **Github Action - CI/CD**.
+
+![click-create-pull-request](./public/image/guide/click-merge-pull-request.jpg)
+
+**Well done, You have successfully Merged the codes**.
+
+**NOTE**   
+If branch is updated, you have to **pull** it first in your terminal before making any changes to your project.
+
+```shell
+$ git pull https://github.com/YHA-Center/yha-website.git
+```
 
 
 
