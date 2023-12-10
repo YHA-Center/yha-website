@@ -22,23 +22,20 @@
     <div class="container-fluid">
         <div class="row px-3">
             <div class="col-5">
-                <a href="" class="d-flex align-items-center">
+                <a href="{{ route('yha#home') }}" class="d-flex align-items-center">
                     <img src="{{ asset('image/logo/logo.png') }}" alt="YHA Logo" width="100">
                     YHA - Computer Training Center
                 </a>
             </div>
-            <div class="col-7 d-flex align-items-center justify-content-end">
-                <a id="" href="{{  }}" class="active">Home</a>
-                    <a class="" href="{{  }}" id="courses">Courses</a>
-                    <a id="" href="{{  }}">Projects</a>
-                    <a id="" href="{{  }}">Photo-Gallery</a>
-                    <a id="" href="{{  }}">Events</a>
-                    <a id="" href="{{  }}">
-                        <div class="login">
-                            <a class="" href="{{  }}"><i class="fa-solid fa-user"></i></a>
-                            <!-- <span>Login <span style="color: orangered;">/</span> Signup</span> -->
-                        </div>
-                    </a>
+            <div class="col-7 d-flex align-items-center justify-content-evenly">
+                <a id="" href="{{ route('yha#home') }}" class="active">Home</a>
+                    <a class="" href="{{ route('yha#course') }}" id="courses">Courses</a>
+                    <a id="" href="{{ route('yha#project') }}">Projects</a>
+                    <a id="" href="{{ route('yha#photogallery') }}">Photo-Gallery</a>
+                    <a id="" href="{{ route('yha#event') }}">Events</a>
+                    <a id="" href="{{ route('yha#login') }}">Login</a>
+                <a id="" href="{{ route('yha#signup') }}">SignUp</a>
+                    
             </div>
         </div>
     </div>

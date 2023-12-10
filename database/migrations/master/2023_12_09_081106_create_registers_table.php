@@ -1,5 +1,8 @@
 <?php
 
+// add namespace in order to work with sub folder migrations...
+namespace Database\Migrations\master;
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -11,7 +14,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('course_details', function (Blueprint $table) {
+        Schema::create('registers', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('course_details');
+        Schema::dropIfExists('registers');
     }
 };
