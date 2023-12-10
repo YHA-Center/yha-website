@@ -1,5 +1,8 @@
 <?php
 
+// add namespace in order to work with sub folder migrations...
+namespace Database\Migrations\master;
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;

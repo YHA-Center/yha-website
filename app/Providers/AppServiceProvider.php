@@ -19,6 +19,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Add your additional migration paths here
+        $this->loadMigrationsFrom(base_path('database/migrations/master'));
+
+        // Adjust the namespace if needed
+        $this->loadMigrationsFrom(base_path('database/migrations/master'), 'master');
     }
 }
