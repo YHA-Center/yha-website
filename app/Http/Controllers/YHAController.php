@@ -8,7 +8,7 @@ class YHAController extends Controller
 {
     //home Page
     public function home(){
-        return view('client.home');
+        return view('client.master.home');
     }
 
 }

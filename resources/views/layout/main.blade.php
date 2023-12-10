@@ -8,6 +8,8 @@
     <link rel="icon" href="{{ asset('image/logo/logo.png') }}">
     {{-- css  --}}
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    {{-- header style css  --}}
+    <link rel="stylesheet" href="{{ asset('css/header.css') }}">
     {{-- bootstrap css --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     {{-- fontawesome cdn js  --}}
@@ -16,9 +18,36 @@
 </head>
 <body>
 
-    @yield('header')
+    {{-- header start  --}}
+    <div class="container-fluid">
+        <div class="row px-3">
+            <div class="col-5">
+                <a href="" class="d-flex align-items-center">
+                    <img src="{{ asset('image/logo/logo.png') }}" alt="YHA Logo" width="100">
+                    YHA - Computer Training Center
+                </a>
+            </div>
+            <div class="col-7 d-flex align-items-center justify-content-end">
+                <a id="" href="{{  }}" class="active">Home</a>
+                    <a class="" href="{{  }}" id="courses">Courses</a>
+                    <a id="" href="{{  }}">Projects</a>
+                    <a id="" href="{{  }}">Photo-Gallery</a>
+                    <a id="" href="{{  }}">Events</a>
+                    <a id="" href="{{  }}">
+                        <div class="login">
+                            <a class="" href="{{  }}"><i class="fa-solid fa-user"></i></a>
+                            <!-- <span>Login <span style="color: orangered;">/</span> Signup</span> -->
+                        </div>
+                    </a>
+            </div>
+        </div>
+    </div>
+    {{-- header end  --}}
 
+
+    {{-- content section start  --}}
     @yield('content')
+    {{-- content section end  --}}
 
     @yield('footer')
 
