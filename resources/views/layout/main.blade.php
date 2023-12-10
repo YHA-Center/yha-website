@@ -34,8 +34,7 @@
                 <a class="text-decoration-none" href="{{ route('yha#photogallery') }}">Photo-Gallery</a>
                 <a class="text-decoration-none" href="{{ route('yha#event') }}">Events</a>
                 <a class="text-decoration-none" href="{{ route('yha#login') }}">Login</a>
-                <a class="text-decoration-none" href="{{ route('yha#signup') }}">SignUp</a>
-                    
+                <a class="text-decoration-none" href="{{ route('yha#signup') }}">SignUp</a>   
             </div>
         </div>
     </div>
