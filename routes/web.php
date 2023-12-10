@@ -8,7 +8,7 @@ use App\Http\Controllers\events\EventController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\courses\CourseController;
 use App\Http\Controllers\SignUpController;
-use App\Http\Controllers\projects\ProjectController;
+use App\Http\Controllers\projects\ProjectController; 
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\photogallery\PhotoGalleryController;
 
