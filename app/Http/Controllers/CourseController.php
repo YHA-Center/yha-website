@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class CourseController extends Controller
 {
     //get all course from database
-    public function getCourse(){
+    public function course(){
         return view('client.course');
     }
 }
