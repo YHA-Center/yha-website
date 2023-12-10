@@ -1,11 +1,15 @@
 # Getting Started
 
-1. Clone the **repo**
+1. Fork the repo
+
+![click-fork-button](../public/image/guide/click-fork-button.jpg)
+
+2. Clone the **repo**
 
 ```shell
 $ mkdir project
 $ cd project
-$ git clone https://github.com/YHA-Center/yha-website.git
+$ git clone https://github.com/<YOUR_GITHUB_USERNAME>/yha-website.git
 ```
 
 2. Create **.env** file
@@ -65,15 +69,15 @@ $ git push origin your_branch_new
 
 Click **Compare & pull request**
 
-![click-compare-&-pull-request](./public/image/guide/click-pull-request.jpg)
+![click-compare-&-pull-request](../public/image/guide/click-pull-request.jpg)
 
 Click **Create Pull Request**. You can also change **Add a title** field what you like.
 
-![click-create-pull-request](./public/image/guide/click-pull-request-btn.jpg)
+![click-create-pull-request](../public/image/guide/click-pull-request-btn.jpg)
 
 Click **Merge Pull Request** and then click **Merge**. We can also add **Github Action - CI/CD**.
 
-![click-create-pull-request](./public/image/guide/click-merge-pull-request.jpg)
+![click-create-pull-request](../public/image/guide/click-merge-pull-request.jpg)
 
 **Well done, You have successfully Merged the codes**.
 
