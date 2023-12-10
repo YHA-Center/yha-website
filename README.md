@@ -16,6 +16,6 @@
 
 Before contributing the project, please follow the guide to understand how project is structured.
 
-1. [Getting Started](https://github.com/YHA-Center/yha-website/guide/getting-started.md)
-2. [TroubleShooting](https://github.com/YHA-Center/yha-website/guide/troubleshooting.md)
+1. [Getting Started](https://github.com/YHA-Center/yha-website/blob/main/guide/getting-started.md)
+2. [TroubleShooting](https://github.com/YHA-Center/yha-website/blob/main/guide/troubleshooting.md)
 
