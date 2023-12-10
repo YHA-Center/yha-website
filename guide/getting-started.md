@@ -9,7 +9,7 @@
 ```shell
 $ mkdir project
 $ cd project
-$ git clone https://github.com/<YOUR_GITHUB_USERNAME>/yha-website.git
+$ git clone https://github.com/YHA-Center/yha-website.git
 ```
 
 2. Create **.env** file

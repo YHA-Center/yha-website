@@ -39,3 +39,18 @@ $ php artisan migrate
 ```
 
 Check your database that have been updated successfully.
+
+## 2. Using Controller with sub folder
+
+- Add **namespace and Controller Path** to your controller file
+
+```php
+namespace App\Http\Controllers\<YOUR_FOLDER_NAME>;
+use App\Http\Controllers\Controller;
+```
+
+- Import the Controller with foldername in your **web.php** file
+
+```php
+use App\Http\Controllers\<FOLDER_NAME>\<CONTROLLER_NAME>;
+```
