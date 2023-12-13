@@ -14,8 +14,10 @@
 
 ## Getting Started
 
-Before contributing the project, please follow the guide to understand how project is structured.
+- [Installation](https://github.com/YHA-Center/yha-website/blob/main/guide/getting-started.md)
 
-1. [Getting Started](https://github.com/YHA-Center/yha-website/blob/main/guide/getting-started.md)
-2. [TroubleShooting](https://github.com/YHA-Center/yha-website/blob/main/guide/troubleshooting.md)
+
+### Troubleshooting
+
+- [TroubleShooting](https://github.com/YHA-Center/yha-website/blob/main/guide/troubleshooting.md)
 
