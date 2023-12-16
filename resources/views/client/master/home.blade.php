@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layout.frontend')
 
 
 @section('content')
@@ -132,12 +132,6 @@
         </div>
     </section>
     {{-- end of project section  --}}
-
-    <section id="slider">
-        <div class="container">
-
-        </div>
-    </section>
 
     {{-- teacher section start --}}
     <section id="teacher">

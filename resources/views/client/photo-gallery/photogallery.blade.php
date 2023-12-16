@@ -1,7 +1,11 @@
-@extends('layout.main')
+@extends('layout.frontend')
 
 @section('content')
-    
-    <h2>This is Photo Gallery page</h2>
+    <section class="home">
+        <div class="container">
 
+            <img src="{{ asset('image/pic/01.jpg') }}" alt="">
+
+        </div>
+    </section>
 @endsection
