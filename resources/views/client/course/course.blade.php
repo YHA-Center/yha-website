@@ -1,4 +1,4 @@
-@extends('layout.frontend')
+@extends('template.frontend')
 
 @section('content')
     <section class="main">
@@ -22,7 +22,6 @@
                     <div class="img">
                         <img src="{{ asset('image/pic/java.png') }}" alt="">
                     </div>
-
                 </div>
             </div>
         </div>

@@ -37,11 +37,11 @@
 
 <body>
 
-    @include('parts.navbar')
+    @include('client.parts.navbar')
 
     @yield('content')
 
-    @include('parts.footer')
+    @include('client.parts.footer')
 
 </body>
 
