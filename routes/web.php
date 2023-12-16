@@ -13,39 +13,28 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\photogallery\PhotoGalleryController;
 
 // Home Controllers
-Route::get('/', [YHAController::class, 'home'])->name('yha#home');
-Route::get('/home', [YHAController::class, 'home'])->name('yha#home');
+Route::get('/', [YHAController::class, 'home'])->name('YhaHome');
+Route::get('/home', [YHAController::class, 'home'])->name('YhaHome');
 
 // cousre
-Route::get('/course', [CourseController::class, 'course'])->name('yha#course');
+Route::get('/course', [CourseController::class, 'course'])->name('YhaCourse');
 
 // register
-Route::get('/register', [RegisterController::class, 'register'])->name('yha#register');
+Route::get('/register', [RegisterController::class, 'register'])->name('UserRegister');
 
 // project
-Route::get('/project', [ProjectController::class, 'project'])->name('yha#project');
+Route::get('/project', [ProjectController::class, 'project'])->name('YhaProject');
 
 // photo-gallery
-Route::get('/photogallery', [PhotoGalleryController::class, 'photoGallery'])->name('yha#photogallery');
+Route::get('/photogallery', [PhotoGalleryController::class, 'photoGallery'])->name('YhaPhotoGallery');
 
 // event
-Route::get('/event', [EventController::class, 'event'])->name('yha#event');
+Route::get('/event', [EventController::class, 'event'])->name('YhaEvent');
 
 // login
-Route::get('/login', [LoginController::class, 'login'])->name('yha#login');
+Route::get('/login', [LoginController::class, 'login'])->name('UserLogin');
 
 // signup
-Route::get('/signup', [SignUpController::class, 'signup'])->name('yha#signup');
+Route::get('/signup', [SignUpController::class, 'signup'])->name('UserSignup');
 
 // timetable
-
-
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
