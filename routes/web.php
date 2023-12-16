@@ -34,14 +34,22 @@ Route::get('/event', [EventController::class, 'event'])->name('YhaEvent');
 // admin controller
 
 
-// Route::middleware([
-//     'auth:sanctum',
-//     config('jetstream.auth_session'),
-//     'verified',
-// ])->group(function () {
-//     Route::get('/', function () {
-//         return view('template.frontend');
-//     })->name('YhaHome');
-// });
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('admin.pages.index');
+    })->name('dashboard');
+
+
+    Route::group(['prefix' => 'home'], function() {
+        Route::get('/updateSlider', function(){
+
+        });
+    });
+
+});
 
 
