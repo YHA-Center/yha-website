@@ -1,6 +1,6 @@
 @extends('template.frontend')
 
-
+@section('title', 'YHA - Home')
 @section('content')
     {{-- home section  --}}
     <section id="home">
