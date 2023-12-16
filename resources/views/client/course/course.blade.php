@@ -20,7 +20,7 @@
                 </div>
                 <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-12">
                     <div class="img">
-                        <img src="img/" alt="">
+                        <img src="{{ asset('image/pic/java.png') }}" alt="">
                     </div>
 
                 </div>
@@ -75,12 +75,10 @@
                         <h3>Course Outline</h3>
                         <div class="uls w-100 h-100 d-flex">
                             <ul>
-                                <li><span>Lorem, ipsum dolor. </span></li>
-                                <li><span>Lorem, ipsum dolor. </span></li>
-                                <li><span>Lorem, ipsum dolor. </span></li>
-                                <li><span>Lorem, ipsum dolor. </span></li>
-                                <li><span>Lorem, ipsum dolor. </span></li>
-                                <li><span>Lorem, ipsum dolor. </span></li>
+                                <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. At saepe laboriosam nisi neque quia quo ipsa distinctio nam nostrum cumque.</li>
+                                <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. At saepe laboriosam nisi neque quia quo ipsa distinctio nam nostrum cumque.</li>
+                                <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. At saepe laboriosam nisi neque quia quo ipsa distinctio nam nostrum cumque.</li>
+                                <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. At saepe laboriosam nisi neque quia quo ipsa distinctio nam nostrum cumque.</li>
                             </ul>
                         </div>
 
@@ -88,7 +86,7 @@
 
                 </div>
                 <div class="col-12 content w-100">
-                    <h3>Course Content</h3>
+                    <h3>Course Content</h3> <br>
                     <span class="text-secondary"> .4 sections .2 projects .total 12 hours (2 Hours a Day) <i
                             class="fa-solid fa-paperclip"></i> Assigiments</span>
                     <ul>
@@ -102,7 +100,7 @@
                 </div>
                 <div class="col-12 w-100">
                     <div class="times">
-                        <h3><i class="fa-solid fa-calendar-days"></i> TimeTable</h3>
+                        <h3><i class="fa-solid fa-calendar-days"></i> TimeTable</h3> <br>
                         <span>Mon to Thu - 12:00 PM to 2:00 PM</span> <br>
                         <span>Sat and Sun - 8:00 AM to 11:00 AM</span>
                         <p class="text-secondary mt-3">On Weekend (Sat and Sun) is 3 Hours
@@ -161,48 +159,4 @@
         </div>
     </section>
 
-
-    {{-- javascript  --}}
-    <script>
-        let courses = document.getElementById('courses');
-        let courses_menu = document.getElementById('courses_menu');
-        let i = 0;
-        courses.addEventListener("mouseover", function() {
-
-            courses.style.color = "#ff2b01";
-            courses_menu.style.display = "block";
-
-        })
-        courses_menu.addEventListener("mouseover", function() {
-
-            courses.style.color = "#ff2b01";
-            courses_menu.style.display = "block";
-        })
-        courses_menu.addEventListener("mouseout", function() {
-
-            courses.style.color = "black";
-            courses_menu.style.display = "none";
-
-        })
-
-        let course2 = document.getElementById("dropbtn");
-        c = 0;
-
-        course2.addEventListener("click", function() {
-            let dropdown_content = document.querySelector(".dropdown-content");
-            if (c == 1) {
-                c = 0;
-                console.log(c);
-                dropdown_content.style.display = "none";
-            } else {
-                c = 1;
-                console.log(c);
-                dropdown_content.style.display = "block";
-            }
-        })
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
-    </script>
 @endsection
