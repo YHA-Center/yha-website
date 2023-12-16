@@ -82,7 +82,7 @@
                             </div>
                             <div class="project_menu items">
                                 <i class="fa-solid fa-folder"></i>
-                                <a href="stu_projects.php">Projects</a>
+                                <a href="{{ route('YhaProject') }}">Projects</a>
                             </div>
                             <div class="photo_gallery_menu items">
                                 <i class="fa-solid fa-image"></i>

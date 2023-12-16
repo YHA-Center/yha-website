@@ -26,6 +26,9 @@
     {{-- photo gallery css  --}}
     <link rel="stylesheet" href="{{ asset('css/photogallery/photogallery.css') }}">
 
+    {{-- event css  --}}
+    <link rel="stylesheet" href="{{ asset('css/event/event.css') }}">
+
 
     {{-- footer css  --}}
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
