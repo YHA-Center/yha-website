@@ -1,4 +1,4 @@
-@extends('layout.frontend')
+@extends('template.frontend')
 
 @section('content')
     <section class="home p-2 p-md-5">
