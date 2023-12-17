@@ -3,53 +3,51 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\YHAController;
-use App\Http\Controllers\EventController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\CourseController;
-use App\Http\Controllers\SignUpController;
-use App\Http\Controllers\ProjectController; 
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\PhotoGalleryController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 
 // Home Controllers
-Route::get('/', [YHAController::class, 'home'])->name('YhaHome');
-Route::get('/home', [YHAController::class, 'home'])->name('YhaHome');
+Route::get('/', [HomeController::class, 'home'])->name('YhaHome');
+Route::get('/home', [HomeController::class, 'home'])->name('YhaHome');
+Route::get('/course', [HomeController::class, 'course'])->name('YhaCourse');
+Route::get('/project', [HomeController::class, 'project'])->name('YhaProject');
+Route::get('/photogallery', [HomeController::class, 'photoGallery'])->name('YhaPhotoGallery');
+Route::get('/event', [HomeController::class, 'event'])->name('YhaEvent');
 
-// cousre
-Route::get('/course', [CourseController::class, 'course'])->name('YhaCourse');
+// admin 
+Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('Dashboard');
+// admin Home
+Route::prefix('admin')->group(function () {
+    Route::get('/home', [AdminController::class, 'home'])->name('Home');
+    Route::get('/course', [AdminController::class, 'course'])->name('Course');
+    Route::get('/project', [AdminController::class, 'project'])->name('Project');
+    Route::get('/gallery', [AdminController::class, 'gallery'])->name('Gallery');
+    Route::get('/event', [AdminController::class, 'event'])->name('Event');
 
-// project
-Route::get('/project', [ProjectController::class, 'project'])->name('YhaProject');
-
-// photo-gallery
-Route::get('/photogallery', [PhotoGalleryController::class, 'photoGallery'])->name('YhaPhotoGallery');
-
-// event
-Route::get('/event', [EventController::class, 'event'])->name('YhaEvent');
-
-// timetable
-
-
-// admin controller
-
-
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('admin.pages.index');
-    })->name('dashboard');
-
-
-    Route::group(['prefix' => 'home'], function() {
-        Route::get('/updateSlider', function(){
-
-        });
+    // for welcomePages
+    Route::prefix('home')->group(function () {
+        Route::get('/create', [AdminController::class, 'createWelcome'])->name('CreateWelcome');
+        Route::post('/post', [AdminController::class, 'postWelcome'])->name('PostWelcome');
     });
-
 });
+
+
+// Route::middleware([
+//     'auth:sanctum',
+//     config('jetstream.auth_session'),
+//     'verified',
+// ])->group(function () {
+//     Route::get('/dashboard', function () {
+//         return view('admin.pages.index');
+//     })->name('dashboard');
+
+
+//     Route::group(['prefix' => 'home'], function() {
+//         Route::get('/updateSlider', function(){
+
+//         });
+//     });
+
+// });
 
 
