@@ -23,6 +23,12 @@ Route::prefix('admin')->group(function () {
     Route::get('/project', [AdminController::class, 'project'])->name('Project');
     Route::get('/gallery', [AdminController::class, 'gallery'])->name('Gallery');
     Route::get('/event', [AdminController::class, 'event'])->name('Event');
+
+    // for welcomePages
+    Route::prefix('home')->group(function () {
+        Route::get('/create', [AdminController::class, 'createWelcome'])->name('CreateWelcome');
+        Route::post('/post', [AdminController::class, 'postWelcome'])->name('PostWelcome');
+    });
 });
 
 

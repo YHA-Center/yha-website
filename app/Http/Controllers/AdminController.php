@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Welcome;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
@@ -13,7 +15,9 @@ class AdminController extends Controller
 
     // return admin home page
     public function home(){
-        return view('admin.pages.main.home');
+        $welcome = Welcome::paginate(3);
+        // dd($welcome);
+        return view('admin.pages.main.home', compact('welcome'));
     }
 
     // return admin course page
@@ -34,5 +38,25 @@ class AdminController extends Controller
     // return admin project page
     public function project(){
         return view('admin.pages.project.home');
+    }
+
+    // for welcome pages
+    public function createWelcome(){
+        return view('admin.pages.main.welcome.create');
+    }
+    // posting welcome images
+    public function postWelcome(Request $request){
+        $rule = [
+            'image' => 'required|image|mimes:png,jpeg,jpg'
+        ];
+        Validator::make($request->all(), $rule)->validate();
+        if($request->hasfile('image')){
+            $filename = uniqid() .'_'. $request->file('image')->getClientOriginalName(); // filename with unique
+            $request->file('image')->storeas('public', $filename);
+            $data["image"] = $filename;
+        }
+        // dd($data); 
+        Welcome::create($data);
+        return redirect()->route('Home')->with(['success' => 'Added Image Successfully!']);
     }
 }

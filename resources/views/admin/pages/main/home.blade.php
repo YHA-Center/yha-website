@@ -1,9 +1,22 @@
 @extends('template.backend')
 
 @section('content')
-    
+
     <main>
         <div class="container-fluid p-2 p-md-4">
+
+            <div class="row">
+                <div class="col">
+                    @if (session('success'))
+                        <div class="alert-message">
+                            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                <strong>{{ session('success') }}</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        </div>
+                    @endif
+                </div>
+            </div>
 
             {{-- Welcome Page Section  --}}
             <div class="row">
@@ -13,51 +26,46 @@
                     {{-- Add button  --}}
                     <div class="row mb-3">
                         <div class="col-12 text-center">
-                            <a href="" class="btn btn-sm btn-secondary"> <i class="fas fa-plus"></i> &nbsp; Add</a>
+                            <a href="{{ route('CreateWelcome') }}" class="btn btn-sm btn-secondary"> <i
+                                    class="fas fa-plus"></i> &nbsp; Add</a>
                         </div>
                     </div>
                     {{-- Image Section  --}}
                     <div class="row align-items-center justify-content-center d-flex mb-3">
-                        <div class="col-12 col-md-6 col-lg-3">
-                            <div class="card rounded mb-3 shadow-sm">
-                                <div class="card-header">
-                                    <b>Slider One</b>
+                            <?php $i = 1; ?>
+                            @foreach ($welcome as $item)
+                                <div class="col-12 col-md-6 col-lg-3">
+                                    <div class="card rounded mb-3 shadow-sm">
+                                        <div class="card-header">
+                                            <b>Slider {{ $i }} </b>
+                                        </div>
+                                        <img src="{{ asset('storage/' . $item->image) }}" class="card-img-top"
+                                            alt="">
+                                        <div class="card-body text-end">
+                                            <a href="" class="btn btn-sm btn-primary"> <i class="fas fa-pen"></i>
+                                                &nbsp; Edit</a>
+                                            <button href="" class="btn btn-sm btn-danger"> <i
+                                                    class="fas fa-trash"></i> &nbsp; Delete</button>
+                                        </div>
+                                    </div>
                                 </div>
-                                <img src="{{ asset('image/pic/01.jpg') }}" class="card-img-top" alt="">
-                                <div class="card-body text-end">
-                                    <button class="btn btn-sm btn-primary"> <i class="fas fa-pen"></i> &nbsp; Edit</button>
-                                    <button class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> &nbsp; Delete</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-3">
-                            <div class="card rounded mb-3 shadow-sm">
-                                <div class="card-header">
-                                    <b>Slider Two</b>
-                                </div>
-                                <img src="{{ asset('image/pic/01.jpg') }}" class="card-img-top" alt="">
-                                <div class="card-body text-end">
-                                    <button class="btn btn-sm btn-primary"> <i class="fas fa-pen"></i> &nbsp; Edit</button>
-                                    <button class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> &nbsp; Delete</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-3">
-                            <div class="card rounded mb-3 shadow-sm">
-                                <div class="card-header">
-                                    <b>Slider Three</b>
-                                </div>
-                                <img src="{{ asset('image/pic/01.jpg') }}" class="card-img-top" alt="">
-                                <div class="card-body text-end">
-                                    <button class="btn btn-sm btn-primary"> <i class="fas fa-pen"></i> &nbsp; Edit</button>
-                                    <button class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> &nbsp; Delete</button>
-                                </div>
-                            </div>
-                        </div>
+                                <?php $i++; ?>
+                            @endforeach
+                        @if($welcome->count() == 0)
+                            <p class="text-danger h1 text-center"> <i class="fa fa-exclamation-triangle"></i> No Image!</p>
+                        @endif
                     </div>
-                    {{-- Edit Button  --}}
+                    <div class="d-flex align-items-center justify-content-between py-4">
+                        <h4 class=""> Total: <span class="text-primary"> {{ $welcome->total() }} </span></h4>
+                        <a href="{{ route('CreateWelcome') }}" class="btn btn-sm btn-secondary"> <i class="fas fa-plus"></i>
+                            &nbsp; Add</a>
+                    </div>
+                    {{-- Pagniation Button  --}}
+                    {{ $welcome->appends(request()->query())->links() }}
                 </div>
             </div>
+
+            <hr class="my-5">
 
             {{-- About Page Section  --}}
             <div class="row">
@@ -80,7 +88,8 @@
                                 <img src="{{ asset('image/pic/01.jpg') }}" class="card-img-top" alt="">
                                 <div class="card-body text-end">
                                     <button class="btn btn-sm btn-primary"> <i class="fas fa-pen"></i> &nbsp; Edit</button>
-                                    <button class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> &nbsp; Delete</button>
+                                    <button class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> &nbsp;
+                                        Delete</button>
                                 </div>
                             </div>
                         </div>
@@ -92,7 +101,8 @@
                                 <img src="{{ asset('image/pic/01.jpg') }}" class="card-img-top" alt="">
                                 <div class="card-body text-end">
                                     <button class="btn btn-sm btn-primary"> <i class="fas fa-pen"></i> &nbsp; Edit</button>
-                                    <button class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> &nbsp; Delete</button>
+                                    <button class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> &nbsp;
+                                        Delete</button>
                                 </div>
                             </div>
                         </div>
@@ -104,7 +114,8 @@
                                 <img src="{{ asset('image/pic/01.jpg') }}" class="card-img-top" alt="">
                                 <div class="card-body text-end">
                                     <button class="btn btn-sm btn-primary"> <i class="fas fa-pen"></i> &nbsp; Edit</button>
-                                    <button class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> &nbsp; Delete</button>
+                                    <button class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> &nbsp;
+                                        Delete</button>
                                 </div>
                             </div>
                         </div>
@@ -122,7 +133,9 @@
                     </div>
                 </div>
             </div>
-            
+
+            <hr class="my-5">
+
             {{-- Student Project Section  --}}
             <div class="row">
                 <div class="col-12">
@@ -149,8 +162,10 @@
                                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae, magnam!
                                     </p>
                                     <div class="text-end">
-                                        <button class="btn btn-sm btn-primary"> <i class="fas fa-pen"></i> &nbsp; Edit</button>
-                                        <button class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> &nbsp; Delete</button>
+                                        <button class="btn btn-sm btn-primary"> <i class="fas fa-pen"></i> &nbsp;
+                                            Edit</button>
+                                        <button class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> &nbsp;
+                                            Delete</button>
                                     </div>
                                 </div>
                             </div>
@@ -168,8 +183,10 @@
                                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae, magnam!
                                     </p>
                                     <div class="text-end">
-                                        <button class="btn btn-sm btn-primary"> <i class="fas fa-pen"></i> &nbsp; Edit</button>
-                                        <button class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> &nbsp; Delete</button>
+                                        <button class="btn btn-sm btn-primary"> <i class="fas fa-pen"></i> &nbsp;
+                                            Edit</button>
+                                        <button class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> &nbsp;
+                                            Delete</button>
                                     </div>
                                 </div>
                             </div>
@@ -187,8 +204,10 @@
                                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae, magnam!
                                     </p>
                                     <div class="text-end">
-                                        <button class="btn btn-sm btn-primary"> <i class="fas fa-pen"></i> &nbsp; Edit</button>
-                                        <button class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> &nbsp; Delete</button>
+                                        <button class="btn btn-sm btn-primary"> <i class="fas fa-pen"></i> &nbsp;
+                                            Edit</button>
+                                        <button class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> &nbsp;
+                                            Delete</button>
                                     </div>
                                 </div>
                             </div>
@@ -206,8 +225,10 @@
                                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae, magnam!
                                     </p>
                                     <div class="text-end">
-                                        <button class="btn btn-sm btn-primary"> <i class="fas fa-pen"></i> &nbsp; Edit</button>
-                                        <button class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> &nbsp; Delete</button>
+                                        <button class="btn btn-sm btn-primary"> <i class="fas fa-pen"></i> &nbsp;
+                                            Edit</button>
+                                        <button class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> &nbsp;
+                                            Delete</button>
                                     </div>
                                 </div>
                             </div>
@@ -217,6 +238,8 @@
                 </div>
             </div>
 
+            <hr class="my-5">
+
             {{-- Teacher Section  --}}
             <div class="row">
                 <div class="col-12">
@@ -225,7 +248,8 @@
                     {{-- Add button  --}}
                     <div class="row mb-3">
                         <div class="col-12 text-center">
-                            <a href="" class="btn btn-sm btn-secondary"> <i class="fas fa-plus"></i> &nbsp; Add</a>
+                            <a href="" class="btn btn-sm btn-secondary"> <i class="fas fa-plus"></i> &nbsp;
+                                Add</a>
                         </div>
                     </div>
                     {{-- Image Section  --}}
@@ -243,8 +267,10 @@
                                         <li>Position: </li>
                                     </ul>
                                     <div class="text-end">
-                                        <button class="btn btn-sm btn-primary"> <i class="fas fa-pen"></i> &nbsp; Edit</button>
-                                        <button class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> &nbsp; Delete</button>
+                                        <button class="btn btn-sm btn-primary"> <i class="fas fa-pen"></i> &nbsp;
+                                            Edit</button>
+                                        <button class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> &nbsp;
+                                            Delete</button>
                                     </div>
                                 </div>
                             </div>
@@ -262,8 +288,10 @@
                                         <li>Position: </li>
                                     </ul>
                                     <div class="text-end">
-                                        <button class="btn btn-sm btn-primary"> <i class="fas fa-pen"></i> &nbsp; Edit</button>
-                                        <button class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> &nbsp; Delete</button>
+                                        <button class="btn btn-sm btn-primary"> <i class="fas fa-pen"></i> &nbsp;
+                                            Edit</button>
+                                        <button class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> &nbsp;
+                                            Delete</button>
                                     </div>
                                 </div>
                             </div>
@@ -281,8 +309,10 @@
                                         <li>Position: </li>
                                     </ul>
                                     <div class="text-end">
-                                        <button class="btn btn-sm btn-primary"> <i class="fas fa-pen"></i> &nbsp; Edit</button>
-                                        <button class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> &nbsp; Delete</button>
+                                        <button class="btn btn-sm btn-primary"> <i class="fas fa-pen"></i> &nbsp;
+                                            Edit</button>
+                                        <button class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> &nbsp;
+                                            Delete</button>
                                     </div>
                                 </div>
                             </div>
