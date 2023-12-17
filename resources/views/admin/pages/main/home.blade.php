@@ -23,13 +23,6 @@
                 <div class="col-12">
                     {{-- Title Section  --}}
                     <h3 class="text-center mb-3">Welcome Page</h3>
-                    {{-- Add button  --}}
-                    <div class="row mb-3">
-                        <div class="col-12 text-center">
-                            <a href="{{ route('CreateWelcome') }}" class="btn btn-sm btn-secondary"> <i
-                                    class="fas fa-plus"></i> &nbsp; Add</a>
-                        </div>
-                    </div>
                     {{-- Image Section  --}}
                     <div class="row align-items-center justify-content-center d-flex mb-3">
                             <?php $i = 1; ?>
@@ -42,9 +35,9 @@
                                         <img src="{{ asset('storage/' . $item->image) }}" class="card-img-top"
                                             alt="">
                                         <div class="card-body text-end">
-                                            <a href="" class="btn btn-sm btn-primary"> <i class="fas fa-pen"></i>
+                                            <a href="{{ route('EditWelcome', $item->id) }}" class="btn btn-sm btn-primary"> <i class="fas fa-pen"></i>
                                                 &nbsp; Edit</a>
-                                            <button href="" class="btn btn-sm btn-danger"> <i
+                                            <button class="btn btn-sm btn-danger"> <i
                                                     class="fas fa-trash"></i> &nbsp; Delete</button>
                                         </div>
                                     </div>

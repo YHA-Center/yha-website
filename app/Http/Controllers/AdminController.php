@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Welcome;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
@@ -58,5 +59,36 @@ class AdminController extends Controller
         // dd($data); 
         Welcome::create($data);
         return redirect()->route('Home')->with(['success' => 'Added Image Successfully!']);
+    }
+    // editing welcome images
+    public function editWelcome($id){
+        $welcome = Welcome::where('id', $id)->first();
+        // dd($welcome->toArray());
+        return view('admin.pages.main.welcome.edit', compact('welcome'));
+    }
+    // updating welcome images
+    public function updateWelcome(Request $request){
+        // validation rule
+        $rule = [
+            'image' => 'required|image|mimes:png,jpeg,jpg'
+        ];
+        // make validation
+        Validator::make($request->all(), $rule)->validate();
+        // get current image id
+        $id = $request->id;
+        if($request->hasfile('image')){
+            // Delete Old image 
+            $old = Welcome::select('image')->where('id', $request->id)->first()->toArray();
+            $old = $old['image'];
+            if($old != null){
+                Storage::delete('public/'.$old);
+            }
+            $filename = uniqid() .'_'. $request->file('image')->getClientOriginalName(); // filename with unique
+            $request->file('image')->storeas('public', $filename);
+            $data["image"] = $filename;
+        }
+        // dd($data);
+        Welcome::where('id', $id)->update($data);
+        return redirect()->route('Home')->with(['success' => 'Updated image successfully']);
     }
 }
