@@ -28,6 +28,8 @@ Route::prefix('admin')->group(function () {
     Route::prefix('home')->group(function () {
         Route::get('/create', [AdminController::class, 'createWelcome'])->name('CreateWelcome');
         Route::post('/post', [AdminController::class, 'postWelcome'])->name('PostWelcome');
+        Route::get('/edit/{id}', [AdminController::class, 'editWelcome'])->name('EditWelcome');
+        Route::post('/update', [AdminController::class, 'updateWelcome'])->name('UpdateWelcome');
     });
 });
 
