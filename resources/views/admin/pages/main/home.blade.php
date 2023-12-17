@@ -37,8 +37,8 @@
                                         <div class="card-body text-end">
                                             <a href="{{ route('EditWelcome', $item->id) }}" class="btn btn-sm btn-primary"> <i class="fas fa-pen"></i>
                                                 &nbsp; Edit</a>
-                                            <button class="btn btn-sm btn-danger"> <i
-                                                    class="fas fa-trash"></i> &nbsp; Delete</button>
+                                            <a href="{{ route('DeleteWelcome', $item->id) }}" class="btn btn-sm btn-danger"> <i
+                                                class="fas fa-trash"></i> &nbsp; Delete</a>
                                         </div>
                                     </div>
                                 </div>

@@ -91,4 +91,9 @@ class AdminController extends Controller
         Welcome::where('id', $id)->update($data);
         return redirect()->route('Home')->with(['success' => 'Updated image successfully']);
     }
+    // deleting welcome image
+    public function deleteWelcome($id){
+        Welcome::where('id', $id)->delete();
+        return redirect()->route('Home')->with(['success'=>'Deleted image successfully!']);
+    }
 }

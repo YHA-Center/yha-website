@@ -30,6 +30,7 @@ Route::prefix('admin')->group(function () {
         Route::post('/post', [AdminController::class, 'postWelcome'])->name('PostWelcome');
         Route::get('/edit/{id}', [AdminController::class, 'editWelcome'])->name('EditWelcome');
         Route::post('/update', [AdminController::class, 'updateWelcome'])->name('UpdateWelcome');
+        Route::get('/delete/{id}', [AdminController::class, 'deleteWelcome'])->name('DeleteWelcome');
     });
 });
 
