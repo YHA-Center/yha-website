@@ -24,12 +24,18 @@ Route::prefix('admin')->group(function () {
     Route::get('/gallery', [AdminController::class, 'gallery'])->name('Gallery');
     Route::get('/event', [AdminController::class, 'event'])->name('Event');
 
-    // for welcomePages
+    // for welcome home section
     Route::prefix('home')->group(function () {
         Route::get('/create', [AdminController::class, 'createWelcome'])->name('CreateWelcome');
         Route::post('/post', [AdminController::class, 'postWelcome'])->name('PostWelcome');
         Route::get('/edit/{id}', [AdminController::class, 'editWelcome'])->name('EditWelcome');
         Route::post('/update', [AdminController::class, 'updateWelcome'])->name('UpdateWelcome');
+        Route::get('/delete/{id}', [AdminController::class, 'deleteWelcome'])->name('DeleteWelcome');
+    });
+
+    //for about sectoin
+    Route::prefix('about')->group(function () {
+        Route::get('/create', [AdminController::class, 'createAbout'])->name('CreateAbout');
     });
 });
 
