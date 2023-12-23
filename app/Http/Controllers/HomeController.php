@@ -37,7 +37,7 @@ class HomeController extends Controller
     //     return view('client.home.photogallery');
     // }
 
-    //
+
     public function dashboard(){
         return view('admin.pages.index');
     }
@@ -51,25 +51,28 @@ class HomeController extends Controller
         return view('admin.pages.main.home', compact('welcome', 'about', 'about_desc'));
     }
 
+
+
+
     // return admin course page
     public function course(){
         return view('admin.pages.course.home');
     }
-
     // return admin event page
     public function event(){
         return view('admin.pages.event.home');
     }
-
     // return admin gallery page
     public function gallery(){
         return view('admin.pages.gallery.home');
     }
-
     // return admin project page
     public function project(){
         return view('admin.pages.project.home');
     }
+
+
+
 
     // for welcome pages
     public function createWelcome(){
@@ -131,6 +134,9 @@ class HomeController extends Controller
         Welcome::where('id', $id)->delete();
         return redirect()->route('Home')->with(['success'=>'Deleted image successfully!']);
     }
+
+
+
 
     //direct about add image page
     public function postAbout(){
@@ -202,6 +208,14 @@ class HomeController extends Controller
         $id = $request->id;
         AboutDesc::where('id', $id)->update($data);
         return redirect()->route('Home')->with(['success' => 'Updated about description successfully!']);
+    }
+
+
+
+
+    // direct student project create page
+    public function postProject(){
+        return view('admin.pages.main.student_project.create');
     }
 
 }

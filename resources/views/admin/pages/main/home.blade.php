@@ -49,10 +49,9 @@
                             </p>
                         @endif
                     </div>
-                    <div class="d-flex align-items-center justify-content-between py-4">
-                        <h4 class=""> Total: <span class="text-primary"> {{ $welcome->total() }} </span></h4>
-                        <a href="{{ route('home.create') }}" class="btn btn-primary"> <i class="fas fa-plus"></i>
-                            Add Image</a>
+                    <div class="d-flex flex-column align-items-center justify-content-end py-4">
+                        <a href="{{ route('home.create') }}" class="btn btn-primary     "> <i class="fas fa-plus"></i>Add Image</a>
+                        <h6 class="mt-3"> Total: <span class="text-primary"> {{ $welcome->total() }} </span></h6>
                     </div>
                     {{-- Pagniation Button  --}}
                     {{ $welcome->appends(request()->query())->links() }}
@@ -131,8 +130,7 @@
                     <h3 class="text-center mb-3">Student Project Page</h3>
 
                     @if (!count($about))
-                        <p class="text-danger h5 text-center my-5"> <i class="fa fa-exclamation-triangle"></i> No About
-                            Image!</p>
+                        <p class="text-danger h5 text-center my-5"> <i class="fa fa-exclamation-triangle"></i> No Student Project!</p>
                     @endif
 
                     {{-- Image Section  --}}
@@ -164,7 +162,7 @@
                     {{-- Add button  --}}
                     <div class="row mb-3">
                         <div class="col-12 text-center">
-                            <a href="" class="btn  btn-primary"> <i class="fas fa-plus"></i> &nbsp; Add Project</a>
+                            <a href="{{ route('student_project.home') }}" class="btn  btn-primary"> <i class="fas fa-plus"></i> &nbsp; Add Project</a>
                         </div>
                     </div>
                     
