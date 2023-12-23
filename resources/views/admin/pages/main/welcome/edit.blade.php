@@ -20,7 +20,7 @@
                         {{-- Card body  --}}
                         <div class="card-body">
                             {{-- Insert image  --}}
-                            <form action="{{ route('UpdateWelcome') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('home.update') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3">
                                     {{-- hidden Image Id  --}}
