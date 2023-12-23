@@ -166,8 +166,8 @@
                                 </div>
                                 <div class="card-footer">
                                     <div class="text-end">
-                                        <button class="btn btn-sm btn-primary"> <i class="fas fa-pen"></i></button>
-                                        <button class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i></button>
+                                        <a href="{{ route('student_project.edit', $item->id) }}" class="btn btn-sm btn-primary"> <i class="fas fa-pen"></i></a>
+                                        <a href="{{ route('student_project.delete', $item->id) }}" class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i></a>
                                     </div>
                                 </div>
                             </div>

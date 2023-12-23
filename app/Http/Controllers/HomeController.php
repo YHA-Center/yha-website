@@ -49,7 +49,7 @@ class HomeController extends Controller
         $welcome = Welcome::orderBy('updated_at')->paginate(3);
         $about = About::get();
         $about_desc = AboutDesc::get()->first();
-        $projects = StudentProject::orderBy('updated_at')->paginate(6);
+        $projects = StudentProject::orderBy('updated_at', 'desc')->paginate(6);
         // dd($about->toArray());
         return view('admin.pages.main.home', compact('welcome', 'about', 'about_desc', 'projects'));
     }
@@ -238,6 +238,40 @@ class HomeController extends Controller
         // dd($data); 
         StudentProject::create($data);
         return redirect()->route('Home')->with(['success' => 'Added student project successfully!']);
+    }
+    // delete student project
+    public function deleteProject($id){
+        StudentProject::where('id', $id)->delete();
+        return back()->with(['success' => 'Deleted student project successfully!']);
+    }
+    // edit student project
+    public function editProject($id){
+        $data = StudentProject::where('id', $id)->first();
+        return view('admin.pages.main.student_project.edit', compact('data'));
+    }
+    // update student project
+    public function updateProject(Request $request){
+        $rule = [
+            'title' => 'required|min:3|unique:student_projects,title,'.$request->id,
+            'image' => 'required|image|mimes:png,jpeg,jpg',
+            'desc' => 'required|min:5',
+        ];
+        Validator::make($request->all(), $rule)->validate();
+        $data = $this->getStudentProjectData($request);
+        $id = $request->id;
+        if($request->hasfile('image')){
+            // Delete Old image 
+            $old = StudentProject::select('image')->where('id', $id)->first()->toArray();
+            $old = $old['image'];
+            if($old != null){
+                Storage::delete('public/'.$old);
+            }
+            $filename = uniqid() .'_'. $request->file('image')->getClientOriginalName(); // filename with unique
+            $request->file('image')->storeas('public', $filename);
+            $data["image"] = $filename;
+        }
+        StudentProject::where('id', $id)->update($data);
+        return redirect()->route('Home')->with(['success' => 'Updated student project successfully']);
     }
 
 
