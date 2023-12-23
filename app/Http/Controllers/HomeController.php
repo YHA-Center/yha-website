@@ -6,9 +6,11 @@ use App\Models\About;
 use App\Models\Welcome;
 use App\Models\AboutDesc;
 use Illuminate\Http\Request;
+use App\Models\StudentProject;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use SebastianBergmann\CodeCoverage\Report\Xml\Project;
 
 class HomeController extends Controller
 {
@@ -44,11 +46,12 @@ class HomeController extends Controller
 
     // return admin home page
     public function home(){
-        $welcome = Welcome::paginate(3);
+        $welcome = Welcome::orderBy('updated_at')->paginate(3);
         $about = About::get();
         $about_desc = AboutDesc::get()->first();
+        $projects = StudentProject::orderBy('updated_at')->paginate(6);
         // dd($about->toArray());
-        return view('admin.pages.main.home', compact('welcome', 'about', 'about_desc'));
+        return view('admin.pages.main.home', compact('welcome', 'about', 'about_desc', 'projects'));
     }
 
 
@@ -216,6 +219,39 @@ class HomeController extends Controller
     // direct student project create page
     public function postProject(){
         return view('admin.pages.main.student_project.create');
+    }
+    // create student project
+    public function createProject(Request $request){
+
+        $data = $this->getStudentProjectData($request);
+        $rule = [
+            'title' => 'required|min:3|unique:student_projects,title,'.$request->id,
+            'image' => 'required|image|mimes:png,jpeg,jpg',
+            'desc' => 'required|min:5',
+        ];
+        Validator::make($request->all(), $rule)->validate();
+        if($request->hasfile('image')){
+            $filename = uniqid() .'_'. $request->file('image')->getClientOriginalName(); // filename with unique
+            $request->file('image')->storeas('public', $filename);
+            $data["image"] = $filename;
+        }
+        // dd($data); 
+        StudentProject::create($data);
+        return redirect()->route('Home')->with(['success' => 'Added student project successfully!']);
+    }
+
+
+
+
+    // private
+    private function getStudentProjectData($request){
+        $arr = [
+            'title' => $request->title,
+            'desc' => $request->desc,
+            'github' => $request->github,
+            'demo' => $request->demo,
+        ];
+        return $arr;
     }
 
 }
