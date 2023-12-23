@@ -17,7 +17,7 @@
                         <div class="card-body">
 
                             {{-- Insert image  --}}
-                            <form action="{{ route('PostWelcome') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('home.post') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3">
                                     <label for="image" class="form-label h4 mb-2">Select Image</label>
