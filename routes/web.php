@@ -43,6 +43,15 @@ Route::prefix('admin')->group(function () {
         Route::get('/desc/edit/{id}', [HomeController::class, 'editDesc'])->name('about.desc.edit');
         Route::post('/desc/update', [HomeController::class, 'updateDesc'])->name('about.desc.update');
     });
+
+    //for student project section
+    Route::prefix('student_project')->group(function () {
+        Route::get('/post', [HomeController::class, 'postProject'])->name('student_project.home');
+        Route::post('/create', [HomeController::class, 'createProject'])->name('student_project.create');
+        Route::get('/delete/{id}', [HomeController::class, 'deleteProject'])->name('student_project.delete');
+        Route::get('/edit/{id}', [HomeController::class, 'editProject'])->name('student_project.edit');
+        Route::post('/update', [HomeController::class, 'updateProject'])->name('student_project.update');
+    });
 });
 
 

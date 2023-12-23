@@ -25,7 +25,7 @@
                                 <div class="mb-3">
                                     {{-- hidden Image Id  --}}
                                     <input type="hidden" name="id" value="{{ $data->id }}">
-                                    <label for="image" class="form-label h5 mb-2">Choose new image</label>
+                                    <label for="image" class="form-label h6 mb-2">Choose new image</label>
                                     <input type="file" name="image"
                                         class="form-control @error('image') is-invalid  @enderror" id="image">
                                     @error('image')

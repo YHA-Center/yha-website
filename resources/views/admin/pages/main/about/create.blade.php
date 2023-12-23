@@ -23,7 +23,7 @@
                             <form action="{{ route('about.create') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3">
-                                    <label for="image" class="form-label h4 mb-2">Select Image</label>
+                                    <label for="image" class="form-label h6 mb-2">Select Image</label>
                                     <input type="file" name="image"
                                         class="form-control @error('image') is-invalid  @enderror" id="image">
                                     @error('image')

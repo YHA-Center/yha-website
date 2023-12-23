@@ -24,7 +24,7 @@
                     {{-- Title Section  --}}
                     <h3 class="text-center mb-3">Welcome Page</h3>
                     {{-- Image Section  --}}
-                    <div class="row align-items-center justify-content-center d-flex mb-3">
+                    <div class="row align-items-start justify-content-center d-flex mb-3">
                         <?php $i = 1; ?>
                         @foreach ($welcome as $item)
                             <div class="col-12 col-md-6 col-lg-3">
@@ -49,10 +49,9 @@
                             </p>
                         @endif
                     </div>
-                    <div class="d-flex align-items-center justify-content-between py-4">
-                        <h4 class=""> Total: <span class="text-primary"> {{ $welcome->total() }} </span></h4>
-                        <a href="{{ route('home.create') }}" class="btn btn-primary"> <i class="fas fa-plus"></i>
-                            Add Image</a>
+                    <div class="d-flex flex-column align-items-center justify-content-end py-4">
+                        <a href="{{ route('home.create') }}" class="btn btn-primary"> <i class="fas fa-plus"></i>Add Image</a>
+                        <h6 class="mt-3"> Total: <span class="text-primary"> {{ $welcome->total() }} </span></h6>
                     </div>
                     {{-- Pagniation Button  --}}
                     {{ $welcome->appends(request()->query())->links() }}
@@ -69,7 +68,7 @@
                     {{-- Title  --}}
                     <h3 class="text-center mb-3">About Page</h3>
                     {{-- Image Section --}}
-                    <div class="row align-items-center justify-content-center d-flex mb-3">
+                    <div class="row align-items-start justify-content-center d-flex mb-3">
                         @foreach ($about as $item)
                             <div class="col-12 col-md-6 col-lg-3">
                                 <div class="card rounded mb-3 shadow">
@@ -128,44 +127,63 @@
             <div class="row">
                 <div class="col-12">
                     {{-- Title  --}}
-                    <h3 class="text-center mb-3">Student Project Page</h3>
+                    <h3 class="text-center mb-5">Student Project Page</h3>
 
-                    @if (!count($about))
-                        <p class="text-danger h5 text-center my-5"> <i class="fa fa-exclamation-triangle"></i> No About
-                            Image!</p>
+                    @if (!count($projects))
+                        <p class="text-danger h5 text-center my-5"> <i class="fa fa-exclamation-triangle"></i> No Student Project!</p>
                     @endif
 
                     {{-- Image Section  --}}
-                    <div class="row align-items-center justify-content-center d-flex mb-3">
-                        <div class="col-12 col-md-6 col-lg-3">
+                    
+                    <div class="row align-items-start  justify-content-center d-flex mb-3">
+                        @foreach ($projects as $item)
+                        <div class="col-12 col-md-6 col-lg-4">
                             <div class="card rounded mb-3 shadow-sm">
                                 <div class="card-header">
-                                    <b>Project One</b>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <h3>{{ $item->title }}</h3>
+                                        <div class="d-flex align-items-center">
+                                            @if ($item->github != null)
+                                            <a href="{{ $item->github }}" target="_blank">
+                                                <i class="fab fa-github p-2 bg-secondary text-light rounded-circle"></i>
+                                            </a>
+                                            @endif
+                                            <div class="mx-1"></div>
+                                            @if ($item->demo != null)
+                                            <a href="{{ $item->demo }}" target="_blank">
+                                                <i class="fas fa-globe p-2 bg-secondary text-light rounded-circle"></i>
+                                            </a>
+                                            @endif                                            
+                                        </div>
+                                    </div>
                                 </div>
-                                <img src="{{ asset('image/pic/01.jpg') }}" class="card-img-top" alt="">
+                                <img src="{{ asset('storage/'.$item->image) }}" class="card-img-top" alt="">
                                 <div class="card-body">
                                     {{-- Description  --}}
-                                    <h3>Heading</h3>
                                     <p>
-                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae, magnam!
+                                        {{ $item->desc }}
                                     </p>
+                                </div>
+                                <div class="card-footer">
                                     <div class="text-end">
-                                        <button class="btn btn-sm btn-primary"> <i class="fas fa-pen"></i> &nbsp;
-                                            Edit</button>
-                                        <button class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> &nbsp;
-                                            Delete</button>
+                                        <a href="{{ route('student_project.edit', $item->id) }}" class="btn btn-sm btn-primary"> <i class="fas fa-pen"></i></a>
+                                        <a href="{{ route('student_project.delete', $item->id) }}" class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endforeach
                     </div>
                     {{-- End of Image Section  --}}
 
                     {{-- Add button  --}}
                     <div class="row mb-3">
                         <div class="col-12 text-center">
-                            <a href="" class="btn  btn-primary"> <i class="fas fa-plus"></i> &nbsp; Add Project</a>
+                            <a href="{{ route('student_project.home') }}" class="btn  btn-primary"> <i class="fas fa-plus"></i> &nbsp; Add Project</a>
+                            <h6 class="mt-3"> Total: <span class="text-primary"> {{ $projects->total() }} </span></h6>
                         </div>
+                        {{-- Pagniation Button  --}}
+                        {{ $projects->appends(request()->query())->links() }}
                     </div>
                     
                 </div>
