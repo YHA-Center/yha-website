@@ -40,6 +40,8 @@ Route::prefix('admin')->group(function () {
         Route::get('/edit/{id?}', [HomeController::class, 'editAbout'])->name('about.edit');
         Route::get('/delete/{id}', [HomeController::class, 'deleteAbout'])->name('about.delete');
         Route::post('/update', [HomeController::class, 'updateAbout'])->name('about.update');
+        Route::get('/desc/edit/{id}', [HomeController::class, 'editDesc'])->name('about.desc.edit');
+        Route::post('/desc/update', [HomeController::class, 'updateDesc'])->name('about.desc.update');
     });
 });
 

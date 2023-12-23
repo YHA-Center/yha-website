@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use App\Models\Welcome;
+use App\Models\AboutDesc;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
@@ -45,8 +46,9 @@ class HomeController extends Controller
     public function home(){
         $welcome = Welcome::paginate(3);
         $about = About::get();
+        $about_desc = AboutDesc::get()->first();
         // dd($about->toArray());
-        return view('admin.pages.main.home', compact('welcome', 'about'));
+        return view('admin.pages.main.home', compact('welcome', 'about', 'about_desc'));
     }
 
     // return admin course page
@@ -184,6 +186,22 @@ class HomeController extends Controller
         // dd($data);
         About::where('id', $id)->update($data);
         return redirect()->route('Home')->with(['success' => 'Updated about image successfully']);
+    }
+    // edit about description
+    public function editDesc($id){
+        $data = AboutDesc::where('id', $id)->first();
+        return view('admin.pages.main.about.desc', compact('data'));
+    }
+    // update about description
+    public function updateDesc(Request $request){
+        $data = [
+            'id' => $request->id,
+            'desc' => $request->desc,
+        ];
+        // dd($data);
+        $id = $request->id;
+        AboutDesc::where('id', $id)->update($data);
+        return redirect()->route('Home')->with(['success' => 'Updated about description successfully!']);
     }
 
 }

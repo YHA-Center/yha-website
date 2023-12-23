@@ -104,15 +104,16 @@
                     
                     {{-- End of Image Section  --}}
                     {{-- About Description --}}
-                    <div class="d-flex flex-column align-items-center justify-content-center mb-5">
-                        <div class="card shadow">
-                            <div class="card-header">
-                                <h5 class="text-center my-3">About Description</h5>
-                            </div>
-                            <div class="card-body">
-                                <textarea name="" class="text-justify form-control mb-3" id="" cols="100%" style="resize: none;"
-                                    rows="5">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae, aperiam.</textarea>
-                                <button class="btn btn-warning text-end"> <i class="fas fa-pen"></i> Edit</button>
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-12 col-md-7">
+                            <div class="card shadow">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h5 class="text-center my-3">About Description</h5>
+                                    <a href="{{ route('about.desc.edit', $about_desc->id) }}" class="btn btn-warning text-end"> <i class="fas fa-pen"></i> Edit</a>
+                                </div>
+                                <div class="card-body">
+                                    <textarea style="resize: none;" class="form-control" rows="5" readonly>{{ $about_desc->desc }}</textarea>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -128,12 +129,12 @@
                 <div class="col-12">
                     {{-- Title  --}}
                     <h3 class="text-center mb-3">Student Project Page</h3>
-                    {{-- Add button  --}}
-                    <div class="row mb-3">
-                        <div class="col-12 text-center">
-                            <a href="" class="btn btn-sm btn-secondary"> <i class="fas fa-plus"></i> &nbsp; Add</a>
-                        </div>
-                    </div>
+
+                    @if (!count($about))
+                        <p class="text-danger h5 text-center my-5"> <i class="fa fa-exclamation-triangle"></i> No About
+                            Image!</p>
+                    @endif
+
                     {{-- Image Section  --}}
                     <div class="row align-items-center justify-content-center d-flex mb-3">
                         <div class="col-12 col-md-6 col-lg-3">
@@ -157,71 +158,16 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-md-6 col-lg-3">
-                            <div class="card rounded mb-3 shadow-sm">
-                                <div class="card-header">
-                                    <b>Project Two</b>
-                                </div>
-                                <img src="{{ asset('image/pic/01.jpg') }}" class="card-img-top" alt="">
-                                <div class="card-body">
-                                    {{-- Description  --}}
-                                    <h3>Heading</h3>
-                                    <p>
-                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae, magnam!
-                                    </p>
-                                    <div class="text-end">
-                                        <button class="btn btn-sm btn-primary"> <i class="fas fa-pen"></i> &nbsp;
-                                            Edit</button>
-                                        <button class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> &nbsp;
-                                            Delete</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-3">
-                            <div class="card rounded mb-3 shadow-sm">
-                                <div class="card-header">
-                                    <b>Project Three</b>
-                                </div>
-                                <img src="{{ asset('image/pic/01.jpg') }}" class="card-img-top" alt="">
-                                <div class="card-body">
-                                    {{-- Description  --}}
-                                    <h3>Heading</h3>
-                                    <p>
-                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae, magnam!
-                                    </p>
-                                    <div class="text-end">
-                                        <button class="btn btn-sm btn-primary"> <i class="fas fa-pen"></i> &nbsp;
-                                            Edit</button>
-                                        <button class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> &nbsp;
-                                            Delete</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-3">
-                            <div class="card rounded mb-3 shadow-sm">
-                                <div class="card-header">
-                                    <b>Project Four</b>
-                                </div>
-                                <img src="{{ asset('image/pic/01.jpg') }}" class="card-img-top" alt="">
-                                <div class="card-body">
-                                    {{-- Description  --}}
-                                    <h3>Heading</h3>
-                                    <p>
-                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae, magnam!
-                                    </p>
-                                    <div class="text-end">
-                                        <button class="btn btn-sm btn-primary"> <i class="fas fa-pen"></i> &nbsp;
-                                            Edit</button>
-                                        <button class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> &nbsp;
-                                            Delete</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     {{-- End of Image Section  --}}
+
+                    {{-- Add button  --}}
+                    <div class="row mb-3">
+                        <div class="col-12 text-center">
+                            <a href="" class="btn  btn-primary"> <i class="fas fa-plus"></i> &nbsp; Add Project</a>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
             {{-- END OF PROJECT PAGE SECTOIN  --}}
