@@ -24,6 +24,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/home', [HomeController::class, 'home'])->name('Home');
     Route::get('/teacher', [TeacherController::class, 'teacherPage'])->name('Teacher');
     Route::get('/course', [CourseController::class, 'coursePage'])->name('Course');
+    Route::get('/subject', [SubjectController::class, 'subjectPage'])->name('Subject');
+    Route::get('/section', [SectionController::class, 'sectionPage'])->name('Section');
 
     // for welcome home section
     Route::prefix('home')->group(function () {
@@ -71,6 +73,26 @@ Route::prefix('admin')->group(function () {
         Route::post('/update', [CourseController::class, 'update'])->name('course.update');
         Route::get('/delete/{id}', [CourseController::class, 'delete'])->name('course.delete');
     });
+
+    // for subject section
+    Route::prefix('subject')->group(function () {
+        Route::get('/createPage', [SubjectController::class, 'createPage'])->name('subject.createPage');
+        Route::post('/create', [SubjectController::class, 'create'])->name('subject.create');
+        Route::get('/edit/{id}', [SubjectController::class, 'edit'])->name('subject.edit');
+        Route::post('/update', [SubjectController::class, 'update'])->name('subject.update');
+        Route::get('/delete/{id}', [SubjectController::class, 'delete'])->name('subject.delete');
+    });
+
+    // for section page
+    Route::prefix('section')->group(function () {
+        Route::get('/createPage', [SectionController::class, 'createPage'])->name('section.createPage');
+        Route::post('/create', [SectionController::class, 'create'])->name('section.create');
+        Route::get('/edit/{id}', [SectionController::class, 'edit'])->name('section.edit');
+        Route::post('/update', [SectionController::class, 'update'])->name('section.update');
+        Route::get('/delete/{id}', [SectionController::class, 'delete'])->name('section.delete');
+    });
+
+
 });
 
 
@@ -89,7 +111,6 @@ Route::prefix('admin')->group(function () {
 
 //         });
 //     });
-
 // });
 
 
