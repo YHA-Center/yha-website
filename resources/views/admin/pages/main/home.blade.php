@@ -2,7 +2,7 @@
 
 @section('content')
     <main>
-        <div class="container-fluid p-2 p-md-4">
+        <div class="container-fluid p-2 p-md-4 bg-secondary">
 
             {{-- Message Box  --}}
             <div class="row">
@@ -19,10 +19,10 @@
             </div>
 
             {{-- Welcome Page Section  --}}
-            <div class="row">
+            <div class="row shadow mx-5 p-3 mb-5 rounded bg-light">
                 <div class="col-12">
                     {{-- Title Section  --}}
-                    <h3 class="text-center mb-3">Welcome Page</h3>
+                    <span class="text-center mb-3 fs-3">Welcome Page</span>
                     {{-- Image Section  --}}
                     <div class="row align-items-start justify-content-center d-flex mb-3">
                         <?php $i = 1; ?>
@@ -60,13 +60,13 @@
             {{-- END OF WELCOME PAGE SECTION  --}}
 
             {{-- Break Line  --}}
-            <hr class="my-5">
+            {{-- <hr class="my-5"> --}}
 
             {{-- About Page Section  --}}
-            <div class="row">
+            <div class="row shadow mx-5 p-3 mb-5 rounded bg-light">
                 <div class="col-12">
                     {{-- Title  --}}
-                    <h3 class="text-center mb-3">About Page</h3>
+                    <span class="text-center mb-3 fs-3">About Page</span>
                     {{-- Image Section --}}
                     <div class="row align-items-start justify-content-center d-flex mb-3">
                         @foreach ($about as $item)
@@ -121,13 +121,13 @@
             {{-- END OF ABOUT PAGE SECTION  --}}
 
             {{-- Break Line  --}}
-            <hr class="my-5">
+            {{-- <hr class="my-5"> --}}
 
             {{-- Student Project Section  --}}
-            <div class="row">
+            <div class="row shadow mx-5 p-3 mb-5 rounded bg-light">
                 <div class="col-12">
                     {{-- Title  --}}
-                    <h3 class="text-center mb-5">Student Project Page</h3>
+                    <span class="text-center mb-5 fs-3">Student Project Page</span>
 
                     @if (!count($projects))
                         <p class="text-danger h5 text-center my-5"> <i class="fa fa-exclamation-triangle"></i> No Student Project!</p>
@@ -191,7 +191,7 @@
             {{-- END OF PROJECT PAGE SECTOIN  --}}
 
             {{-- Break Line  --}}
-            <hr class="my-5">
+            {{-- <hr class="my-5"> --}}
 
             {{-- Teacher Section  --}}
             {{-- <div class="row">

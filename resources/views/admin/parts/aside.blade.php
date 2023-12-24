@@ -19,6 +19,7 @@
                         <a class="nav-link" href="{{ route('Home') }}">Home</a>
                         <a class="nav-link" href="{{ route('Course') }}">Courses</a>
                         <a class="nav-link" href="{{ route('Teacher') }}">Teacher</a>
+                        <a class="nav-link" href="{{ route('Subject') }}">Subject</a>
                         {{-- <a class="nav-link" href="{{ route('Student') }}">Student</a> --}}
                     </nav>
                 </div>
@@ -64,9 +65,6 @@
                 </a>
             </div>
         </div>
-        <div class="sb-sidenav-footer">
-            <div class="small">Logged in as:</div>
-            Start Bootstrap
-        </div>
+        
     </nav>
 </div>
