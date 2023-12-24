@@ -17,8 +17,9 @@
                 <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link" href="{{ route('Home') }}">Home</a>
-                        {{-- <a class="nav-link" href="{{ route('Course') }}">Courses</a> --}}
+                        <a class="nav-link" href="{{ route('Course') }}">Courses</a>
                         <a class="nav-link" href="{{ route('Teacher') }}">Teacher</a>
+                        {{-- <a class="nav-link" href="{{ route('Student') }}">Student</a> --}}
                     </nav>
                 </div>
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">

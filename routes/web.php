@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 // use App\Http\Controllers\HomeController;
 
@@ -21,6 +23,7 @@ Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('Dashboard'
 Route::prefix('admin')->group(function () {
     Route::get('/home', [HomeController::class, 'home'])->name('Home');
     Route::get('/teacher', [TeacherController::class, 'teacherPage'])->name('Teacher');
+    Route::get('/course', [CourseController::class, 'coursePage'])->name('Course');
 
     // for welcome home section
     Route::prefix('home')->group(function () {
@@ -58,6 +61,15 @@ Route::prefix('admin')->group(function () {
         Route::get('/edit/{id}', [TeacherCOntroller::class, 'edit'])->name('teacher.edit');
         Route::post('/update', [TeacherCOntroller::class, 'update'])->name('teacher.update');
         Route::get('/delete/{id}', [TeacherController::class, 'delete'])->name('teacher.delete');
+    });
+
+    // for course section
+    Route::prefix('course')->group(function () {
+        Route::get('/createPage', [CourseController::class, 'createPage'])->name('course.createPage');
+        Route::post('/create', [CourseController::class, 'create'])->name('course.create');
+        Route::get('/edit/{id}', [CourseController::class, 'edit'])->name('course.edit');
+        Route::post('/update', [CourseController::class, 'update'])->name('course.update');
+        Route::get('/delete/{id}', [CourseController::class, 'delete'])->name('course.delete');
     });
 });
 

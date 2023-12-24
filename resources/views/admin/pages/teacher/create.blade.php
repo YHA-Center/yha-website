@@ -49,7 +49,7 @@
                             {{-- Age  --}}
                             <div class="mb-3 form-group">
                                 <label for="age" class="form-label h6 my-2">Age</label>
-                                <input type="text" name="age"
+                                <input type="text" name="age" value="{{ old('age') }}"
                                     class="form-control @error('age') is-invalid  @enderror" id="age" placeholder="Instructor Age">
                                 @error('age')
                                     <div class="invalid-feedback">
@@ -61,7 +61,7 @@
                             {{-- Position  --}}
                             <div class="mb-3 form-group">
                                 <label for="position" class="form-label h6 my-2">Position</label>
-                                <input type="text" name="position"
+                                <input type="text" name="position" value="{{ old('position') }}"
                                     class="form-control @error('position') is-invalid  @enderror" id="position" placeholder="Instructor Position">
                                 @error('position')
                                     <div class="invalid-feedback">
