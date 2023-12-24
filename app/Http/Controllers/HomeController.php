@@ -274,10 +274,23 @@ class HomeController extends Controller
         return redirect()->route('Home')->with(['success' => 'Updated student project successfully']);
     }
 
+    
+
+
+    // teacher section
+    public function postTeacher(){
+        return view('admin.pages.main.teacher.create');
+    }
+    // create teacher
+    public function createTeacher(Request $request){
+        dd($request);
+    }
 
 
 
-    // private
+
+    // private functions
+    // student project data
     private function getStudentProjectData($request){
         $arr = [
             'title' => $request->title,

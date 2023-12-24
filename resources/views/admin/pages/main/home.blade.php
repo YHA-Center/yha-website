@@ -194,19 +194,13 @@
             <hr class="my-5">
 
             {{-- Teacher Section  --}}
-            <div class="row">
-                <div class="col-12">
+            {{-- <div class="row">
+                <div class="col-12"> --}}
                     {{-- Title  --}}
-                    <h3 class="text-center mb-3">Teacher Page</h3>
-                    {{-- Add button  --}}
-                    <div class="row mb-3">
-                        <div class="col-12 text-center">
-                            <a href="" class="btn btn-sm btn-secondary"> <i class="fas fa-plus"></i> &nbsp;
-                                Add</a>
-                        </div>
-                    </div>
+                    {{-- <h3 class="text-center mb-3">Teacher Page</h3> --}}
+                    
                     {{-- Image Section  --}}
-                    <div class="row align-items-center justify-content-center d-flex mb-3">
+                    {{-- <div class="row align-items-center justify-content-center d-flex mb-3">
                         <div class="col-12 col-md-6 col-lg-3">
                             <div class="card rounded mb-3 shadow-sm">
                                 <div class="card-header">
@@ -215,7 +209,49 @@
                                 <img src="{{ asset('image/pic/01.jpg') }}" class="card-img-top" alt="">
                                 <div class="card-body">
                                     {{-- Description  --}}
-                                    <ul class="list-unstyled">
+                                    {{-- <ul class="list-unstyled">
+                                        <li>Age: </li>
+                                        <li>Position: </li>
+                                    </ul>
+                                    <div class="text-end">
+                                        <button class="btn btn-sm btn-primary"> <i class="fas fa-pen"></i> &nbsp;
+                                            Edit</button>
+                                        <button class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> &nbsp;
+                                            Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> --}}
+                        {{-- <div class="col-12 col-md-6 col-lg-3">
+                            <div class="card rounded mb-3 shadow-sm">
+                                <div class="card-header">
+                                    <b>Name: </b>
+                                </div>
+                                <img src="{{ asset('image/pic/01.jpg') }}" class="card-img-top" alt="">
+                                <div class="card-body"> --}}
+                                    {{-- Description  --}}
+                                    {{-- <ul class="list-unstyled">
+                                        <li>Age: </li>
+                                        <li>Position: </li>
+                                    </ul>
+                                    <div class="text-end">
+                                        <button class="btn btn-sm btn-primary"> <i class="fas fa-pen"></i> &nbsp;
+                                            Edit</button>
+                                        <button class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> &nbsp;
+                                            Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> --}}
+                        {{-- <div class="col-12 col-md-6 col-lg-3">
+                            <div class="card rounded mb-3 shadow-sm">
+                                <div class="card-header">
+                                    <b>Name: </b>
+                                </div>
+                                <img src="{{ asset('image/pic/01.jpg') }}" class="card-img-top" alt="">
+                                <div class="card-body"> --}}
+                                    {{-- Description  --}}
+                                    {{-- <ul class="list-unstyled">
                                         <li>Age: </li>
                                         <li>Position: </li>
                                     </ul>
@@ -228,51 +264,19 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-md-6 col-lg-3">
-                            <div class="card rounded mb-3 shadow-sm">
-                                <div class="card-header">
-                                    <b>Name: </b>
-                                </div>
-                                <img src="{{ asset('image/pic/01.jpg') }}" class="card-img-top" alt="">
-                                <div class="card-body">
-                                    {{-- Description  --}}
-                                    <ul class="list-unstyled">
-                                        <li>Age: </li>
-                                        <li>Position: </li>
-                                    </ul>
-                                    <div class="text-end">
-                                        <button class="btn btn-sm btn-primary"> <i class="fas fa-pen"></i> &nbsp;
-                                            Edit</button>
-                                        <button class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> &nbsp;
-                                            Delete</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-3">
-                            <div class="card rounded mb-3 shadow-sm">
-                                <div class="card-header">
-                                    <b>Name: </b>
-                                </div>
-                                <img src="{{ asset('image/pic/01.jpg') }}" class="card-img-top" alt="">
-                                <div class="card-body">
-                                    {{-- Description  --}}
-                                    <ul class="list-unstyled">
-                                        <li>Age: </li>
-                                        <li>Position: </li>
-                                    </ul>
-                                    <div class="text-end">
-                                        <button class="btn btn-sm btn-primary"> <i class="fas fa-pen"></i> &nbsp;
-                                            Edit</button>
-                                        <button class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> &nbsp;
-                                            Delete</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </div> --}}
                     {{-- End of Image Section  --}}
                 </div>
+
+                {{-- Add button  --}}
+                {{-- <div class="row mb-3">
+                    <div class="col-12 text-center">
+                        <a href="{{ route('teacher_profile.home') }}" class="btn  btn-primary"> <i class="fas fa-plus"></i> &nbsp; Add Teacher</a>
+                        <h6 class="mt-3"> Total: <span class="text-primary"> {{ $projects->total() }} </span></h6>
+                    </div> --}}
+                    {{-- Pagniation Button  --}}
+                    {{-- {{ $projects->appends(request()->query())->links() }}
+                </div> --}}
             </div>
             {{-- END OF TEACHER PAGE SECTION  --}}
 

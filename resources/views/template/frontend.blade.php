@@ -18,20 +18,15 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     {{-- home style css  --}}
-    <link rel="stylesheet" href="{{ asset('css/home/home.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('css/client/home.css') }}">
     {{-- course style css  --}}
-    <link rel="stylesheet" href="{{ asset('css/course/course.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('css/client/course.css') }}">
     {{-- photo gallery css  --}}
-    <link rel="stylesheet" href="{{ asset('css/photogallery/photogallery.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('css/client/photogallery.css') }}">
     {{-- event css  --}}
-    <link rel="stylesheet" href="{{ asset('css/event/event.css') }}">
-
-
+    <link rel="stylesheet" href="{{ asset('css/client/event.css') }}">
     {{-- footer css  --}}
-    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/client/footer.css') }}">
 
 </head>
 
