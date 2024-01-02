@@ -1,5 +1,7 @@
 {{-- header section start  --}}
 
+
+<div class="sticky">
 <section class="top">
     <div class="container-fluid">
 
@@ -29,14 +31,14 @@
                 </div>
                 <h4>YHA <br> Computer Training Center</h4>
             </div>
-            <div class="col-xl-7 col-lg-7 col-md-2 col-sm-2 col-2">
-                <a id="disp" href="{{ route('YhaHome') }}" class="active">Home</a>
-                <a class="disp" href="{{ route('YhaCourse') }}" id="courses">Courses</a>
-                <a id="disp" href="{{ route('YhaProject') }}">Projects</a>
-                <a id="disp" href="{{ route('YhaPhotoGallery') }}">Photo-Gallery</a>
-                <a id="disp" href="{{ route('YhaEvent') }}">Events</a>
+            <div class="col-xl-7 col-lg-7 col-md-2 col-sm-2 col-2   justify-content-end">
+                <a id="disp" href="{{ route('frontend.index_home') }}" class="active">Home</a>
+                <a class="disp" href="{{ route('frontend.course') }}" id="courses">Courses</a>
+                <a id="disp" href="{{ route('frontend.project') }}">Projects</a>
+                <a id="disp" href="{{ route('frontend.photogallery') }}">Photo-Gallery</a>
+                <a id="disp" href="{{ route('frontend.event') }}">Events</a>
                 @if (Route::has('login'))
-                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
+                <div id="disp" class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                     @auth
                         <div class="d-flex">
                             <h3>{{ Auth::user()->name }}</h3>
@@ -46,15 +48,15 @@
                             </form>
                         </div>
                     @else
-                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
+                        <a id="disp" href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                            <a id="disp" href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
                         @endif
                     @endauth
                 </div>
             @endif
-
+ 
                 <div class="rightmenu">
                     <button class="btn" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
@@ -70,39 +72,54 @@
                         <div class="offcanvas-body">
                             <div class="home_menu1 items">
                                 <i class="fa-solid fa-house"></i>
-                                <a href="{{ route('YhaHome') }}">Home</a>
+                                <a href="{{ route('frontend.event') }}">Home</a>
                             </div>
                             <div class="courses_menu items">
                                 <i class="fas fa-book"></i>
                                 <button id="dropbtn">Courses</button>
                                 <div class="dropdown-content">
                                     <div class="listes d-flex flex-column">
-                                        <a href="{{ route('YhaCourse') }}" style="color: orangered;">View All Courses</a>
-                                        <a href="{{ route('YhaCourse') }}">34356</a>
-                                        <a href="{{ route('YhaCourse') }}">34356</a>
-                                        <a href="{{ route('YhaCourse') }}">34356</a>
-                                        <a href="{{ route('YhaCourse') }}">34356</a>
+                                        <a href="{{ route('frontend.course') }}" style="color: orangered;">View All Courses</a>
+                                        <a href="{{ route('frontend.course') }}">34356</a>
+                                        <a href="{{ route('frontend.course') }}">34356</a>
+                                        <a href="{{ route('frontend.course') }}">34356</a>
+                                        <a href="{{ route('frontend.course') }}">34356</a>
 
                                     </div>
                                 </div>
                             </div>
                             <div class="project_menu items">
                                 <i class="fa-solid fa-folder"></i>
-                                <a href="{{ route('YhaProject') }}">Projects</a>
+                                <a href="{{ route('frontend.project') }}">Projects</a>
                             </div>
                             <div class="photo_gallery_menu items">
                                 <i class="fa-solid fa-image"></i>
-                                <a href="{{ route('YhaPhotoGallery') }}">Photo-Gallery</a>
+                                <a href="{{ route('frontend.photogallery') }}">Photo-Gallery</a>
                             </div>
                             <div class="Events_menu items">
                                 <i class="fa-solid fa-calendar"></i>
-                                <a href="{{ route('YhaEvent') }}">Events</a>
+                                <a href="{{ route('frontend.event') }}">Events</a>
                             </div>
                             <div class="login_menu items">
                                 <i class="fa-solid fa-user"></i>
-                                <a href="../login1.php">
+                                {{-- <a href="../login1.php">
                                     <span>Login <span style="color: orangered;">/</span> Signup</span>
-                                </a>
+                                </a> --}}
+                                @auth
+                                <div class="d-flex" style="color: orangered;">
+                                    <h3>{{ Auth::user()->name }}</h3>
+                                    <form action="{{ route('logout') }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger btn-sm">Logout</button>
+                                    </form>
+                                </div>
+                            @else
+                                <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
+    
+                                @if (Route::has('register'))
+                                    <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                                @endif
+                            @endauth    
                             </div>
                         </div>
                     </div>
@@ -112,4 +129,6 @@
     </div>
 </section>
 
+@include('client.parts.cou')
+</div>
 {{-- header section end  --}}

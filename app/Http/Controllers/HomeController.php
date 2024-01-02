@@ -14,6 +14,41 @@ use SebastianBergmann\CodeCoverage\Report\Xml\Project;
 
 class HomeController extends Controller
 {
+    // For Frontend client page (Kaung Zwe);
+    public function index_home(){
+        return view("client.home.home");
+    }
+    public function f_cou(){
+        return view("client.parts.cou");
+    }
+    public function f_course_detail(){
+        return view("client.home.course_detail");
+    }
+    public function f_event(){
+        return view("client.home.event");
+    }
+    public function f_photogallery(){
+        return view("client.home.photogallery");
+    }
+    public function f_project(){
+        return view("client.home.project");
+    }
+    public function f_course(){
+        return view("client.home.course");
+    }
+//    client frontend home page end (Kaung Zwe);
+
+// student registration form (Kaung Zwe);
+
+    public function registration(){
+        return view('admin.pages.student_registration.student_registration');
+    }
+
+// student registration form (Kaung Zwe);
+
+
+
+
     // //home Page
     // public function home(){
     //     return view('client.home.home');

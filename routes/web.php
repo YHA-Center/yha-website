@@ -7,7 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\StudentController;
-use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\SubjectController; 
 use App\Http\Controllers\TeacherController;
 // use App\Http\Controllers\HomeController;
 
@@ -116,3 +116,20 @@ Route::prefix('admin')->group(function () {
 // });
 
 
+
+// frontend section
+Route::prefix('f_home')->group(function () {
+    Route::get('/index_home', [HomeController::class, 'index_home'])->name('frontend.index_home');
+    Route::get('/course', [HomeController::class, 'f_course'])->name('frontend.course');
+    Route::get('/cou', [HomeController::class, 'f_cou'])->name('frontend.cou');
+    Route::get('/course_detail', [HomeController::class, 'f_course_detail'])->name('frontend.course_detail');
+    Route::get('/f_event', [HomeController::class, 'f_event'])->name('frontend.event');
+    Route::get('/photogallery', [HomeController::class, 'f_photogallery'])->name('frontend.photogallery');
+    Route::get('/project', [HomeController::class, 'f_project'])->name('frontend.project');
+});
+
+// Route::get('registration', function () {
+//     return view('admin.pages.student_registration.student_registration');
+// });
+
+Route::get('registration', [HomeController::class, 'registration'])->name('registration');

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 
 <head>
@@ -26,7 +26,7 @@
     {{-- event css  --}}
     <link rel="stylesheet" href="{{ asset('css/client/event.css') }}">
     {{-- footer css  --}}
-    <link rel="stylesheet" href="{{ asset('css/client/footer.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
 
 </head>
 

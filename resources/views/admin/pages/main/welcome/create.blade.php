@@ -5,7 +5,7 @@
         <div class="container-fluid p-2 p-md-4">
 
             <div class="row d-flex justify-content-center">
-                <div class="col-12 col-md-6 ">
+                <div class="col-12 col-md-6 "> 
 
                     <a href="{{ route('Home') }}" class="text-decoration-none text-secondary"> <i
                             class="fas fa-arrow-left"></i> Back</a>

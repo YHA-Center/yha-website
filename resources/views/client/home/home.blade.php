@@ -1,5 +1,5 @@
 @extends('template.frontend')
-
+ 
 @section('title', 'YHA - Home')
 @section('content')
     {{-- home section  --}}
@@ -38,12 +38,12 @@
             <h3 class="text-white" style="font-variant: small-caps; font-size: 25px; letter-spacing: 1px;"> Build Your
                 Future With <br> TECHNOLOGY</h3>
             <div class="row">
-                <div id="ab_left" class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ">
+                <div style="border:none;" id="ab_left" class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ">
                     <img class="ab_img1" src="{{ asset('image/pic/about/photo12.jpg') }}">
                     <img class="ab_img2" src="{{ asset('image/pic/about/photo4.jpg') }}">
                     <img class="ab_img3" src="{{ asset('image/pic/about/20.jpg') }}">
                 </div>
-                <div id="ab_right" class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                <div style="border:none;" id="ab_right" class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                     <div class="ab_text">
                         <h2>About Us</h2>
                         <p class="section"> 
@@ -92,12 +92,12 @@
 
 
     {{-- project section start  --}}
-    <section id="stu_project">
+    <section id="stu_project"> 
         <div class="container">
             <div class="heading">
                 <h2>Students Projects</h2>
-                <p>We held project presentations end of the Batches to make sure that our students receive knowledge and
-                    truly understand the fields they are taking</p>
+                <p>We held project presentations end of the Batches to make sure that our students received knowledge and
+                    truly understand the fields they were taking</p>
             </div>
             <div class="row">
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12">
@@ -201,7 +201,7 @@
                 <div class="text">
                     <h2>Address And Location</h2>
                     <div class="address">
-                        <p>Address - </p>
+                        <p>Address - No.29, Heldan Insein Road, Giordano Upper Floor(6th) Kamaryut</p>
                     </div>
                     <p></p>
                 </div>

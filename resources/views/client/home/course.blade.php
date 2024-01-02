@@ -1,7 +1,7 @@
 @extends('template.frontend')
 
 @section('content')
-
+ 
 <div class="main w-100">
     <div class="container">
         <h5 style="margin-bottom: 10px;">Courses Section</h5>
@@ -18,7 +18,7 @@
                     </div>
                     <div class="btns" style="margin-top: 5px;">
                         <span> <span style="color: orangered;">Ks /-</span> 300$ </span>
-                        <button id="btn1"><a href="">View More</a></button>
+                        <button id="btn1"><a href="{{route('frontend.course_detail')}}">View More</a></button>
                     </div>
                 </div>
             </div>
@@ -34,7 +34,7 @@
                     </div>
                     <div class="btns" style="margin-top: 5px;">
                         <span> <span style="color: orangered;">Ks /-</span> 1000$ </span>
-                        <button id="btn1"><a href="">View More</a></button>
+                        <button id="btn1"><a href="{{route('frontend.course_detail')}}">View More</a></button>
                     </div>
                 </div>
             </div>

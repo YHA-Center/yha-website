@@ -10,7 +10,7 @@
                         <h1>Lorem ipsum dolor sit amet.</h1>
                         <span>Lorem ipsum dolor sit amet.</span>
                         <p>Lorem ipsum dolor sit amet.</p>
-
+ 
                         <a href="#">
                             <Button id="btn1">Enroll Now</Button>
                         </a>
@@ -66,7 +66,7 @@
 
     </section>
 
-    <section id="about">
+    <section id="about" class="text-start">
         <div class="container w-100 h-100">
             <div class="row w-100">
                 <div class="col-12">

@@ -13,7 +13,7 @@
     --white: #ffffff;
     --sec-white: rgb(231, 231, 231);
     --bg: black;
-    --ab_bg: rgba(233, 233, 233, 0.945);
+    --ab_bg: rgba(233, 233, 233, 0.897);
 }
 
 html {
@@ -162,7 +162,7 @@ body {
         3px 3px 10px #f3f3f3;
 }
 
-.top .search input {
+.top .search input { 
     padding: 5px 10px;
     color: var(--maincolor);
 }

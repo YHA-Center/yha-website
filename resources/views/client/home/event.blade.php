@@ -2,15 +2,15 @@
 
 @section('content')
     <section class="home p-2 p-md-5">
-        <div class="bg-text">
+        <div class="bg-text text-center">
             <h2>Event Heading</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias ipsa, cupiditate minima esse facilis quo
                 ut maiores saepe commodi rem unde quod libero tenetur laudantium deleniti modi sit a! Culpa.</p>
         </div>
-    </section>
+    </section> 
 
     <section class="main">
-        <div class="container">
+        <div class="container"> 
             <div class="row">
 
                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 left">
